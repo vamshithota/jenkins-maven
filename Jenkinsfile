@@ -1,4 +1,5 @@
-node{
+pipeline{
+  agent any
   environment{
     NEW_VERSION='1.0.0'
   }
