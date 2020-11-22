@@ -1,10 +1,10 @@
 node{
   environment{
-    NEW-VERSION='1.0.0'
+    NEW_VERSION='1.0.0'
   }
   stage('build'){
     steps{
-      echo "building version ${NEW-VERSION}"
+      echo "building version ${NEW_VERSION}"
     }
   }
   stage('SCM Checkout'){
