@@ -7,6 +7,7 @@ pipeline{
 		stage("build"){
 			steps{
 				echo 'build the app'
+				echo "building with version ${new_version}"
 			}
 		}
 		stage("test"){
