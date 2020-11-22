@@ -1,4 +1,12 @@
 node{
+  environment{
+    NEW-VERSION='1.0.0'
+  }
+  stage('build'){
+    steps{
+      echo "building version ${NEW-VERSION}"
+    }
+  }
   stage('SCM Checkout'){
     git 'https://github.com/vamshithota/jenkins-maven'
   }
