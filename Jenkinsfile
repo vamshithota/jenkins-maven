@@ -13,33 +13,53 @@ pipeline{
 		booleanParam(name:'executeTests',defaultValue:true,description:'')
 	}
 	stages{
+		stage("init"){
+			steps{
+			    script{
+				 gv = load "script.groovy"
+				}
+			}
+		}
 		stage("build"){
 			steps{
-				echo 'build the app'
-				echo "building with version ${new_version}"
-				sh "mvn install"
+			     script{
+				  gv.builApp()	
+				}
+				//echo 'build the app'
+				//echo "building with version ${new_version}"
+				//sh "mvn install"
 			}
 		}
 		stage("test"){
-			when{
-			  expression{
-			     params.executeTests	
-			    }
-			}
 			steps{
-				echo 'testing the app'
+				script{
+					gv.testApp()
+				}
 			}
+			//when{
+			  //expression{
+			    // params.executeTests	
+			    //}
+			//}
+			//steps{
+			//	echo 'testing the app'
+			//}
 		}
 		stage("deploy"){
 			steps{
-				echo 'deploying the app'
-				echo "deploying the version params.VERSION"
+				sript{
+				gv.deployApp()
+				}
+			}
+			//steps{
+			//	echo 'deploying the app'
+//			?/	echo "deploying the version params.VERSION"
 				/*withCredentials([
 					usernamePassword(credentials:'newuser-1',usernameVariable: USER,passwordVariable:PWD)
 				]) {
 					sh "some script ${USER} ${PWD}"
-				}*/
-			}
+//				}*/
+//			}
 		}
 	}	
 }
