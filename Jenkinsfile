@@ -48,7 +48,7 @@ pipeline{
 		stage("deploy"){
 			steps{
 				sript{
-				gv.deployApp()
+					gv.deployApp()
 				}
 			}
 			//steps{
@@ -59,7 +59,7 @@ pipeline{
 				]) {
 					sh "some script ${USER} ${PWD}"
 //				}*/
-//			}
+		}
 		}
 	}	
 }
