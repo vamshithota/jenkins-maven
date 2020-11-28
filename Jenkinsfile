@@ -13,6 +13,11 @@ pipeline{
 	stages{
 		stage("build"){
 			steps{
+				sh "printenv | sort"
+			}
+		}
+		stage("build"){
+			steps{
 				echo 'build the app'
 				echo "building with version ${new_version}"
 				sh "mvn install"
