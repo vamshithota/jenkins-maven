@@ -11,7 +11,7 @@ pipeline{
 		booleanParam(name:'executeTests',defaultValue:true,description:'')
 	}
 	stages{
-		stage("build"){
+		stage("list env vars"){
 			steps{
 				sh "printenv | sort"
 			}
