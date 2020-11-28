@@ -16,6 +16,12 @@ pipeline{
 				sh "printenv | sort"
 			}
 		}
+		stage("using env vars"){
+			steps{
+				echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
+				sh 'echo BUILD_NUMBER = $BUILD_NUMBER'
+			}
+		}
 		stage("build"){
 			steps{
 				echo 'build the app'
