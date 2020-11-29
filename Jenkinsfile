@@ -2,6 +2,7 @@ pipeline{
 	agent any
 	environment{
 		new_version='1.0.0'
+		USER_ID = 1234
 	}
 	tools{
 		maven 'M3'
@@ -19,7 +20,6 @@ pipeline{
 		stage("using env vars"){
 			environment{
 				USER_PATH = "/home/vamsh"
-				
 			}
 			steps{
 				echo "BUILD_NUMBER = ${env.BUILD_NUMBER}"
