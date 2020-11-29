@@ -31,6 +31,7 @@ pipeline{
 				script{
 					env.USER_GROUP = "users"
 					env.USER_NAME="KRISHNA"
+					env.TRIGGER_NEXT = true
 				}
 				
 				echo "current user group is ${env.USER_GROUP}"
@@ -40,6 +41,16 @@ pipeline{
 					sh 'echo current user is admin? : $USER_IS_ADMIN'
 					sh 'echo current user name is $USER_NAME'
 				}
+			}
+		}
+		stage("using env variable from another stage"){
+			when{
+			   expression{
+				env.TRIGGER_NEXT == true
+			   }
+			}
+			steps{
+				echo "OK!"
 			}
 		}
 		stage("build"){
