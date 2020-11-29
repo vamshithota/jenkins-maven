@@ -45,9 +45,13 @@ pipeline{
 		}
 		stage("using env variable from another stage"){
 			when{
-			   expression{
-				env.TRIGGER_NEXT.toBoolean() == true
-			   }
+			  // expression{
+				//env.TRIGGER_NEXT.toBoolean() == true
+			   //}
+			//writing alternative way for boolean value
+				expression{
+					environment name: "TRIGGER_NEXT" ,value: true
+				}
 			}
 			steps{
 				echo "OK!"
