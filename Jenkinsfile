@@ -34,10 +34,10 @@ pipeline{
 				
 				echo "current user group is ${env.USER_GROUP}"
 				
-				withEnv(["USER_PWD=secret","USER_IS_ADMIN=false"]){
-					echo "current user password id ${env.USER_PWD}"
-					sh 'is current user is admin? : $USER_IS_ADMIN'
-				}
+				//withEnv(["USER_PWD=secret","USER_IS_ADMIN=false"]){
+				//	echo "current user password id ${env.USER_PWD}"
+				//	sh 'is current user is admin? : $USER_IS_ADMIN'
+			//	}
 			}
 		}
 		stage("build"){
