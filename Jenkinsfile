@@ -46,7 +46,7 @@ pipeline{
 		stage("using env variable from another stage"){
 			when{
 			   expression{
-				env.TRIGGER_NEXT == true
+				env.TRIGGER_NEXT.toBoolean() == true
 			   }
 			}
 			steps{
