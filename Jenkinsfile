@@ -79,6 +79,17 @@ pipeline{
 				echo 'deploying the app'
 		    }   
 	    }
+		stage("manage null value"){
+			environment{
+				some_val = returnVal()
+			}
+			steps{
+				echo "some value is ${env.some_val} and is type of ${env.some_val?.class} "
+			}
+		}
+	
     }	
 }
-
+def returnVal(){
+		return null
+}
