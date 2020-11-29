@@ -30,13 +30,15 @@ pipeline{
 				echo "Current user path is ${env.USER_PATH}"
 				script{
 					env.USER_GROUP = "users"
+					env.USER_NAME="KRISHNA"
 				}
 				
 				echo "current user group is ${env.USER_GROUP}"
 				
-				withEnv(["USER_PWD=secret","USER_IS_ADMIN=false"]){
+				withEnv(["USER_PWD=secret","USER_IS_ADMIN=false","USER_NAME=BOB" ]){
 					echo "current user password id ${env.USER_PWD}"
 					sh 'echo current user is admin? : $USER_IS_ADMIN'
+					sh 'echo current user name is $USER_NAME'
 				}
 			}
 		}
